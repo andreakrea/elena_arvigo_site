@@ -50,7 +50,7 @@ export interface ProductionHighlight {
 }
 
 export const featuredPortrait = {
-  url: '/images/elena-portrait.png',
+  url: 'images/elena-portrait.png',
   alt: 'Ritratto di Elena Arvigo',
   caption: 'Un ritratto di Elena Arvigo usato come ancora visiva del sito.'
 } as const;
@@ -250,7 +250,7 @@ export const works: WorkItem[] = [
     credits: ['Cinema', 'Arcangelo Bonaccorso', 'Primo percorso autoriale'],
     tags: ['inizio', 'formazione', 'schermo'],
     palette: palettes.lilacNight,
-    imageUrl: '/images/bonjour-michel.jpg',
+    imageUrl: 'images/bonjour-michel.jpg',
     imageAlt: 'Elena Arvigo e Ben Gazzara in una foto di scena di Bonjour Michel',
     imageCaption: 'Foto di scena del film Bonjour Michel.'
   },
@@ -397,7 +397,7 @@ export const works: WorkItem[] = [
     credits: ['Teatro', 'Svetlana Aleksievic', 'Simone Weil'],
     tags: ['memoria', 'guerra', 'testimonianza'],
     palette: palettes.duskBlue,
-    imageUrl: '/images/appunti-per-il-futuro.jpg',
+    imageUrl: 'images/appunti-per-il-futuro.jpg',
     imageAlt: 'Immagine di scena di Appunti per il futuro con Elena Arvigo',
     imageCaption: 'Immagine di scena scelta per Appunti per il futuro.'
   },
@@ -416,7 +416,7 @@ export const works: WorkItem[] = [
     credits: ['Teatro', 'Ghiannis Ritsos', 'Regia e interpretazione'],
     tags: ['mito', 'ritsos', 'figura femminile'],
     palette: palettes.lilacNight,
-    imageUrl: '/images/elena-ritsos.jpg',
+    imageUrl: 'images/elena-ritsos.jpg',
     imageAlt: 'Elena Arvigo in scena nello spettacolo Elena',
     imageCaption: 'Immagine di scena dello spettacolo Elena.'
   },
@@ -499,7 +499,7 @@ export const works: WorkItem[] = [
     credits: ['Teatro', 'Federico Garcia Lorca', 'Gianluca Merolli'],
     tags: ['lorca', 'desiderio', 'figura assoluta'],
     palette: palettes.coralStage,
-    imageUrl: '/images/yerma.jpg',
+    imageUrl: 'images/yerma.jpg',
     imageAlt: 'Immagine di scena di Yerma con Elena Arvigo',
     imageCaption: 'Immagine di scena di Yerma.'
   },
@@ -518,7 +518,7 @@ export const works: WorkItem[] = [
     credits: ['Teatro', 'Sarah Kane', 'Valentina Calvani'],
     tags: ['sarah kane', 'radicale', 'culto'],
     palette: palettes.orchidNoir,
-    imageUrl: '/images/448-psychosis.jpg',
+    imageUrl: 'images/448-psychosis.jpg',
     imageAlt: 'Elena Arvigo in scena in 4:48 Psychosis',
     imageCaption: 'Immagine di scena di 4:48 Psychosis.'
   },
@@ -601,7 +601,7 @@ export const works: WorkItem[] = [
     credits: ['Produzione', 'Svetlana Aleksievic', 'Kyoko Hayashi'],
     tags: ['atomica', 'premio', 'testimonianza'],
     palette: palettes.orchidNoir,
-    imageUrl: '/images/monologhi-atomica.jpg',
+    imageUrl: 'images/monologhi-atomica.jpg',
     imageAlt: "Elena Arvigo in scena ne I Monologhi dell'Atomica",
     imageCaption: "Immagine di scena de I Monologhi dell'Atomica."
   },
@@ -652,7 +652,7 @@ export const works: WorkItem[] = [
     credits: ['Produzione', 'Marguerite Duras', 'Peter Weiss'],
     tags: ['duras', 'guerra', 'memoria'],
     palette: palettes.emberWine,
-    imageUrl: '/images/il-dolore.jpg',
+    imageUrl: 'images/il-dolore.jpg',
     imageAlt: 'Elena Arvigo in scena nello spettacolo Il dolore',
     imageCaption: 'Immagine di scena di Il dolore.'
   },
@@ -671,7 +671,7 @@ export const works: WorkItem[] = [
     credits: ['Produzione', 'Compagnia Elena Arvigo', 'Regia, scene e costumi'],
     tags: ['autoriale', 'mito', 'scena'],
     palette: palettes.lilacNight,
-    imageUrl: '/images/elena-ritsos.jpg',
+    imageUrl: 'images/elena-ritsos.jpg',
     imageAlt: 'Elena Arvigo in scena nello spettacolo Elena',
     imageCaption: 'Immagine di scena usata anche per la scheda di produzione di Elena.'
   },
@@ -690,7 +690,7 @@ export const works: WorkItem[] = [
     credits: ['Produzione', 'Compagnia Elena Arvigo', 'Teatro Out Off'],
     tags: ['compagnia', 'nuova creazione', 'out off'],
     palette: palettes.duskBlue,
-    imageUrl: '/images/appunti-per-il-futuro.jpg',
+    imageUrl: 'images/appunti-per-il-futuro.jpg',
     imageAlt: 'Elena Arvigo in Appunti per il futuro',
     imageCaption: 'Immagine di scena usata anche per la scheda di produzione di Appunti per il futuro.'
   }
