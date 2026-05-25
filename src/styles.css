@@ -1,0 +1,38 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-display: 'Bodoni Moda', serif;
+  --font-sans: 'Manrope', sans-serif;
+
+  --color-paper: #f7efe7;
+  --color-paper-deep: #ebddd1;
+  --color-ink: #261523;
+  --color-ink-soft: #5f4457;
+  --color-lilac: #a384cb;
+  --color-orchid: #c448a6;
+  --color-rose: #e8b3bd;
+  --color-coral: #ef8e77;
+  --color-wine: #b3475e;
+  --color-moss: #617157;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: #261523;
+  font-family: 'Manrope', sans-serif;
+  background:
+    radial-gradient(circle at 20% 15%, rgba(163, 132, 203, 0.25), transparent 24%),
+    radial-gradient(circle at 85% 10%, rgba(239, 142, 119, 0.22), transparent 18%),
+    radial-gradient(circle at 78% 42%, rgba(196, 72, 166, 0.16), transparent 22%),
+    linear-gradient(180deg, #f8f0e7 0%, #f4e6dc 44%, #f9f3ec 100%);
+  min-height: 100vh;
+}
+
+::selection {
+  background: rgba(196, 72, 166, 0.18);
+  color: #261523;
+}
