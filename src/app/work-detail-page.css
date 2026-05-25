@@ -31,7 +31,8 @@
 
 .detail-card,
 .detail-mini-card,
-.palette-card {
+.palette-card,
+.image-card {
   position: relative;
   border: 1px solid rgba(255, 255, 255, 0.58);
   background: rgba(255, 252, 249, 0.55);
@@ -55,6 +56,12 @@
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.5), rgba(255, 250, 246, 0.62)),
     linear-gradient(135deg, color-mix(in srgb, var(--detail-glow) 24%, white), transparent);
+}
+
+.image-card {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.12)),
+    rgba(255, 255, 255, 0.4);
 }
 
 .soft-rise {

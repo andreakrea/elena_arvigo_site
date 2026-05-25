@@ -26,6 +26,9 @@ export interface WorkItem {
   credits: string[];
   tags: string[];
   palette: WorkPalette;
+  imageUrl?: string;
+  imageAlt?: string;
+  imageCaption?: string;
 }
 
 export interface SpotlightItem {
@@ -45,6 +48,12 @@ export interface ProductionHighlight {
   title: string;
   text: string;
 }
+
+export const featuredPortrait = {
+  url: '/images/elena-portrait.png',
+  alt: 'Ritratto di Elena Arvigo',
+  caption: 'Un ritratto di Elena Arvigo usato come ancora visiva del sito.'
+} as const;
 
 const palettes = {
   velvetRose: {
@@ -240,7 +249,10 @@ export const works: WorkItem[] = [
     focus: 'Uno dei primi capitoli del rapporto con lo schermo.',
     credits: ['Cinema', 'Arcangelo Bonaccorso', 'Primo percorso autoriale'],
     tags: ['inizio', 'formazione', 'schermo'],
-    palette: palettes.lilacNight
+    palette: palettes.lilacNight,
+    imageUrl: '/images/bonjour-michel.jpg',
+    imageAlt: 'Elena Arvigo e Ben Gazzara in una foto di scena di Bonjour Michel',
+    imageCaption: 'Foto di scena del film Bonjour Michel.'
   },
   {
     id: 'tv-fuochi-artificio',
@@ -384,7 +396,10 @@ export const works: WorkItem[] = [
     focus: 'Guerra, testimonianza e futuro immaginato dalla voce.',
     credits: ['Teatro', 'Svetlana Aleksievic', 'Simone Weil'],
     tags: ['memoria', 'guerra', 'testimonianza'],
-    palette: palettes.duskBlue
+    palette: palettes.duskBlue,
+    imageUrl: '/images/appunti-per-il-futuro.jpg',
+    imageAlt: 'Immagine di scena di Appunti per il futuro con Elena Arvigo',
+    imageCaption: 'Immagine di scena scelta per Appunti per il futuro.'
   },
   {
     id: 'stage-elena',
@@ -400,7 +415,10 @@ export const works: WorkItem[] = [
     focus: 'Una Elena antica e contemporanea, fragile e lucidissima.',
     credits: ['Teatro', 'Ghiannis Ritsos', 'Regia e interpretazione'],
     tags: ['mito', 'ritsos', 'figura femminile'],
-    palette: palettes.lilacNight
+    palette: palettes.lilacNight,
+    imageUrl: '/images/elena-ritsos.jpg',
+    imageAlt: 'Elena Arvigo in scena nello spettacolo Elena',
+    imageCaption: 'Immagine di scena dello spettacolo Elena.'
   },
   {
     id: 'stage-storia-al-contrario',
@@ -480,7 +498,10 @@ export const works: WorkItem[] = [
     focus: 'Lorca come luogo di desiderio negato e forza verticale.',
     credits: ['Teatro', 'Federico Garcia Lorca', 'Gianluca Merolli'],
     tags: ['lorca', 'desiderio', 'figura assoluta'],
-    palette: palettes.coralStage
+    palette: palettes.coralStage,
+    imageUrl: '/images/yerma.jpg',
+    imageAlt: 'Immagine di scena di Yerma con Elena Arvigo',
+    imageCaption: 'Immagine di scena di Yerma.'
   },
   {
     id: 'stage-448',
@@ -496,7 +517,10 @@ export const works: WorkItem[] = [
     focus: 'Una soglia teatrale che ha segnato il suo percorso.',
     credits: ['Teatro', 'Sarah Kane', 'Valentina Calvani'],
     tags: ['sarah kane', 'radicale', 'culto'],
-    palette: palettes.orchidNoir
+    palette: palettes.orchidNoir,
+    imageUrl: '/images/448-psychosis.jpg',
+    imageAlt: 'Elena Arvigo in scena in 4:48 Psychosis',
+    imageCaption: 'Immagine di scena di 4:48 Psychosis.'
   },
   {
     id: 'stage-maternity-blues',
@@ -576,7 +600,10 @@ export const works: WorkItem[] = [
     focus: 'Una creazione emblematica del suo teatro di testimonianza.',
     credits: ['Produzione', 'Svetlana Aleksievic', 'Kyoko Hayashi'],
     tags: ['atomica', 'premio', 'testimonianza'],
-    palette: palettes.orchidNoir
+    palette: palettes.orchidNoir,
+    imageUrl: '/images/monologhi-atomica.jpg',
+    imageAlt: "Elena Arvigo in scena ne I Monologhi dell'Atomica",
+    imageCaption: "Immagine di scena de I Monologhi dell'Atomica."
   },
   {
     id: 'production-ragazza-meta',
@@ -624,7 +651,10 @@ export const works: WorkItem[] = [
     focus: 'Parola letteraria e trauma storico in una forma essenziale.',
     credits: ['Produzione', 'Marguerite Duras', 'Peter Weiss'],
     tags: ['duras', 'guerra', 'memoria'],
-    palette: palettes.emberWine
+    palette: palettes.emberWine,
+    imageUrl: '/images/il-dolore.jpg',
+    imageAlt: 'Elena Arvigo in scena nello spettacolo Il dolore',
+    imageCaption: 'Immagine di scena di Il dolore.'
   },
   {
     id: 'production-elena',
@@ -640,7 +670,10 @@ export const works: WorkItem[] = [
     focus: 'Una firma scenica che cura anche immagine e spazio.',
     credits: ['Produzione', 'Compagnia Elena Arvigo', 'Regia, scene e costumi'],
     tags: ['autoriale', 'mito', 'scena'],
-    palette: palettes.lilacNight
+    palette: palettes.lilacNight,
+    imageUrl: '/images/elena-ritsos.jpg',
+    imageAlt: 'Elena Arvigo in scena nello spettacolo Elena',
+    imageCaption: 'Immagine di scena usata anche per la scheda di produzione di Elena.'
   },
   {
     id: 'production-appunti',
@@ -656,7 +689,10 @@ export const works: WorkItem[] = [
     focus: 'Compagnia e visione autonoma al servizio di un nuovo lavoro.',
     credits: ['Produzione', 'Compagnia Elena Arvigo', 'Teatro Out Off'],
     tags: ['compagnia', 'nuova creazione', 'out off'],
-    palette: palettes.duskBlue
+    palette: palettes.duskBlue,
+    imageUrl: '/images/appunti-per-il-futuro.jpg',
+    imageAlt: 'Elena Arvigo in Appunti per il futuro',
+    imageCaption: 'Immagine di scena usata anche per la scheda di produzione di Appunti per il futuro.'
   }
 ];
 

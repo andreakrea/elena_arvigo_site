@@ -55,6 +55,17 @@
         </div>
 
         <div class="grid gap-4">
+          @if (detailImage(); as image) {
+            <figure class="image-card soft-rise overflow-hidden rounded-[2rem]" style="--delay: 100ms">
+              <img [src]="image.url" [alt]="image.alt" class="h-[26rem] w-full object-cover" loading="eager" />
+              <figcaption
+                class="border-t border-white/45 bg-white/55 px-5 py-4 text-xs uppercase tracking-[0.2em] text-[color:var(--detail-deep)]/72 backdrop-blur"
+              >
+                {{ image.caption }}
+              </figcaption>
+            </figure>
+          }
+
           <aside class="palette-card soft-rise rounded-[2rem] p-6 md:p-8" style="--delay: 120ms">
             <p class="text-xs uppercase tracking-[0.22em] text-[var(--detail-accent)]">Palette</p>
             <h2
