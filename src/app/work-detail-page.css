@@ -1,0 +1,80 @@
+:host {
+  display: block;
+}
+
+.detail-shell {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: clip;
+  background:
+    radial-gradient(circle at 18% 20%, var(--detail-glow) 0%, transparent 28%),
+    radial-gradient(circle at 85% 14%, var(--detail-paper) 0%, transparent 22%),
+    linear-gradient(180deg, var(--detail-paper) 0%, var(--detail-wash) 100%);
+}
+
+.detail-noise {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.18;
+  mix-blend-mode: soft-light;
+  background-image:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.28) 0%, transparent 46%),
+    repeating-linear-gradient(
+      90deg,
+      rgba(55, 30, 42, 0.03) 0,
+      rgba(55, 30, 42, 0.03) 1px,
+      transparent 1px,
+      transparent 6px
+    );
+}
+
+.detail-card,
+.detail-mini-card,
+.palette-card {
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.58);
+  background: rgba(255, 252, 249, 0.55);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 24px 64px rgba(53, 34, 46, 0.11);
+}
+
+.detail-card::after,
+.palette-card::after {
+  content: '';
+  position: absolute;
+  inset: auto -8% -22% auto;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 999px;
+  background: radial-gradient(circle, color-mix(in srgb, var(--detail-accent) 16%, white), transparent 68%);
+  pointer-events: none;
+}
+
+.palette-card {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.5), rgba(255, 250, 246, 0.62)),
+    linear-gradient(135deg, color-mix(in srgb, var(--detail-glow) 24%, white), transparent);
+}
+
+.soft-rise {
+  opacity: 0;
+  transform: translateY(26px);
+  animation: detail-fade-up 0.8s cubic-bezier(0.2, 0.75, 0.18, 1) forwards;
+  animation-delay: var(--delay, 0ms);
+}
+
+@keyframes detail-fade-up {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .soft-rise {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}

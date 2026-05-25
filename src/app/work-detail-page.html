@@ -1,0 +1,170 @@
+<div class="detail-shell" [ngStyle]="themeVars()">
+  <div class="detail-noise"></div>
+
+  @if (work(); as current) {
+    <div class="sticky top-4 z-30 px-4 md:px-6">
+      <header
+        class="mx-auto mt-4 flex w-full max-w-7xl flex-col gap-4 rounded-[1.8rem] border border-white/55 bg-white/55 px-5 py-4 shadow-[0_18px_40px_rgba(50,33,42,0.1)] backdrop-blur-xl md:flex-row md:items-center md:justify-between md:rounded-full md:px-6"
+      >
+        <a class="font-display text-xl tracking-[0.04em] text-[var(--detail-deep)]" [routerLink]="['/']">
+          Elena Arvigo
+        </a>
+        <nav class="flex flex-wrap gap-4 text-sm text-[color:var(--detail-deep)]/70">
+          <a [routerLink]="['/']" fragment="works">Torna alle opere</a>
+          <a [routerLink]="['/']" fragment="teatro">Linea teatrale</a>
+          <a [routerLink]="['/']" fragment="production">Produzione</a>
+        </nav>
+      </header>
+    </div>
+
+    <main class="mx-auto w-full max-w-7xl px-4 pb-16 pt-8 md:px-6 md:pb-24 md:pt-12">
+      <section class="grid gap-8 py-10 md:py-14 xl:grid-cols-[1.05fr_0.95fr]">
+        <div class="detail-card soft-rise rounded-[2rem] p-6 md:p-8" style="--delay: 40ms">
+          <p class="text-xs uppercase tracking-[0.22em] text-[var(--detail-accent)]">
+            {{ current.type }} / {{ current.year }}
+          </p>
+          <h1
+            class="mt-4 max-w-[10ch] font-display text-[clamp(3rem,8vw,6.2rem)] leading-[0.92] tracking-[-0.05em] text-[var(--detail-deep)]"
+          >
+            {{ current.title }}
+          </h1>
+          <p class="mt-5 text-sm font-extrabold uppercase tracking-[0.12em] text-[var(--detail-deep)]">
+            {{ current.role }}
+          </p>
+          <p class="mt-5 max-w-2xl text-lg leading-8 text-[color:var(--detail-deep)]/78">
+            {{ current.expanded }}
+          </p>
+
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a
+              class="inline-flex min-h-12 items-center justify-center rounded-full bg-[var(--detail-deep)] px-5 text-sm font-semibold text-white transition hover:-translate-y-0.5"
+              [routerLink]="['/']"
+              fragment="works"
+            >
+              Torna alla griglia
+            </a>
+            @if (nextWork(); as next) {
+              <a
+                class="inline-flex min-h-12 items-center justify-center rounded-full border border-[var(--detail-deep)]/15 bg-white/45 px-5 text-sm font-semibold text-[var(--detail-deep)] transition hover:-translate-y-0.5"
+                [routerLink]="['/opere', next.id]"
+              >
+                Opera successiva
+              </a>
+            }
+          </div>
+        </div>
+
+        <div class="grid gap-4">
+          <aside class="palette-card soft-rise rounded-[2rem] p-6 md:p-8" style="--delay: 120ms">
+            <p class="text-xs uppercase tracking-[0.22em] text-[var(--detail-accent)]">Palette</p>
+            <h2
+              class="mt-3 max-w-[12ch] font-display text-[clamp(2rem,4vw,3rem)] leading-[0.98] tracking-[-0.04em] text-[var(--detail-deep)]"
+            >
+              {{ current.palette.mood }}
+            </h2>
+            <p class="mt-4 text-base leading-8 text-[color:var(--detail-deep)]/76">
+              {{ current.focus }}
+            </p>
+            <div class="mt-6 flex flex-wrap gap-3">
+              @for (swatch of current.palette.swatches; track swatch) {
+                <div class="flex flex-col gap-2">
+                  <span
+                    class="size-14 rounded-2xl border border-white/70 shadow-[inset_0_1px_0_rgba(255,255,255,0.35)]"
+                    [style.background]="swatch"
+                  ></span>
+                  <span class="text-[0.68rem] uppercase tracking-[0.18em] text-[color:var(--detail-deep)]/60">
+                    {{ swatch }}
+                  </span>
+                </div>
+              }
+            </div>
+          </aside>
+
+          <div class="detail-card soft-rise rounded-[2rem] p-6 md:p-8" style="--delay: 180ms">
+            <p class="text-xs uppercase tracking-[0.22em] text-[var(--detail-accent)]">Scheda</p>
+            <div class="mt-4 grid gap-4 md:grid-cols-2">
+              <div>
+                <p class="text-xs uppercase tracking-[0.18em] text-[color:var(--detail-deep)]/55">Contesto</p>
+                <p class="mt-2 text-base leading-7 text-[color:var(--detail-deep)]/76">{{ current.note }}</p>
+              </div>
+              <div>
+                <p class="text-xs uppercase tracking-[0.18em] text-[color:var(--detail-deep)]/55">Crediti</p>
+                <ul class="mt-2 space-y-2 text-base leading-7 text-[color:var(--detail-deep)]/76">
+                  @for (credit of current.credits; track credit) {
+                    <li>{{ credit }}</li>
+                  }
+                </ul>
+              </div>
+            </div>
+            <div class="mt-6 border-t border-[var(--detail-deep)]/10 pt-5">
+              <p class="text-xs uppercase tracking-[0.18em] text-[color:var(--detail-deep)]/55">Dettaglio</p>
+              <p class="mt-2 text-base leading-8 text-[color:var(--detail-deep)]/76">{{ current.detail }}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid gap-4 py-6 md:py-10 xl:grid-cols-[0.8fr_1.2fr]">
+        <aside class="detail-card soft-rise rounded-[2rem] p-6 md:p-8" style="--delay: 220ms">
+          <p class="text-xs uppercase tracking-[0.22em] text-[var(--detail-accent)]">Atmosfera</p>
+          <h2
+            class="mt-3 font-display text-[2rem] leading-[1.02] tracking-[-0.03em] text-[var(--detail-deep)]"
+          >
+            Una pagina costruita sull'opera
+          </h2>
+          <p class="mt-4 text-base leading-8 text-[color:var(--detail-deep)]/76">
+            Ogni scheda cambia atmosfera cromatica per avvicinarsi al tono del progetto: piu
+            mitico, piu severo, piu intimo o piu civile.
+          </p>
+          <div class="mt-6 flex flex-wrap gap-2">
+            @for (tag of current.tags; track tag) {
+              <span class="rounded-full bg-white/55 px-3 py-2 text-sm text-[var(--detail-deep)]">
+                {{ tag }}
+              </span>
+            }
+          </div>
+        </aside>
+
+        <div class="grid gap-4 md:grid-cols-3">
+          @for (item of relatedWorks(); track item.id; let i = $index) {
+            <a
+              class="detail-mini-card soft-rise rounded-[1.75rem] p-5 transition hover:-translate-y-1"
+              [style.--delay]="(260 + i * 60) + 'ms'"
+              [routerLink]="['/opere', item.id]"
+            >
+              <span class="text-xs uppercase tracking-[0.22em] text-[var(--detail-accent)]">
+                {{ item.year }}
+              </span>
+              <h3 class="mt-3 font-display text-[1.6rem] leading-[1.05] text-[var(--detail-deep)]">
+                {{ item.title }}
+              </h3>
+              <p class="mt-3 text-sm font-semibold uppercase tracking-[0.08em] text-[var(--detail-deep)]">
+                {{ item.role }}
+              </p>
+              <p class="mt-3 text-base leading-7 text-[color:var(--detail-deep)]/72">{{ item.note }}</p>
+            </a>
+          }
+        </div>
+      </section>
+    </main>
+  } @else {
+    <main class="mx-auto flex min-h-screen w-full max-w-4xl items-center justify-center px-4 py-16 md:px-6">
+      <div class="detail-card rounded-[2rem] p-8 text-center">
+        <p class="text-xs uppercase tracking-[0.22em] text-[var(--detail-accent,#b3475e)]">Opera</p>
+        <h1 class="mt-4 font-display text-5xl leading-none tracking-[-0.04em] text-[var(--detail-deep,#261523)]">
+          Scheda non trovata
+        </h1>
+        <p class="mx-auto mt-5 max-w-xl text-lg leading-8 text-[color:var(--detail-deep,#261523)]/75">
+          Questa opera non e presente nel catalogo attuale. Torna alla pagina principale per
+          esplorare le schede disponibili.
+        </p>
+        <a
+          class="mt-8 inline-flex min-h-12 items-center justify-center rounded-full bg-[var(--detail-deep,#261523)] px-5 text-sm font-semibold text-white"
+          [routerLink]="['/']"
+        >
+          Torna alla home
+        </a>
+      </div>
+    </main>
+  }
+</div>
