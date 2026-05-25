@@ -92,6 +92,10 @@
   opacity: 0.95;
 }
 
+.work-card {
+  overflow: hidden;
+}
+
 .rise-in {
   opacity: 0;
   transform: translateY(28px);
