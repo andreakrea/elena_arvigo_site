@@ -46,16 +46,14 @@ export class WorkDetailPage {
 
   readonly detailImage = computed(() => {
     const current = this.work();
-    if (!current) {
+    if (!current || !current.imageUrl) {
       return null;
     }
 
     return {
-      url: current.imageUrl ?? '/images/elena-portrait.png',
-      alt: current.imageAlt ?? `Ritratto di Elena Arvigo per ${current.title}`,
-      caption:
-        current.imageCaption ??
-        'Immagine usata come riferimento visivo per accompagnare la scheda dell opera.'
+      url: current.imageUrl,
+      alt: current.imageAlt ?? current.title,
+      caption: current.imageCaption ?? ''
     };
   });
 
