@@ -138,7 +138,7 @@ const palettes = {
   }
 } as const satisfies Record<string, WorkPalette>;
 
-export const works: WorkItem[] = [
+const baseWorks: WorkItem[] = [
   {
     id: 'film-confidenza',
     year: '2024',
@@ -696,34 +696,104 @@ export const works: WorkItem[] = [
   }
 ];
 
+const placeholderDetails = [
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+  'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+  'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.',
+  'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.'
+] as const;
+
+const placeholderRoles = [
+  'Lorem ipsum',
+  'Dolor sit amet',
+  'Consectetur elit',
+  'Sed do eiusmod'
+] as const;
+
+const placeholderNotes = [
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+  'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.',
+  'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.',
+  'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.'
+] as const;
+
+const placeholderExpanded = [
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+  'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+  'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+  'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+] as const;
+
+const placeholderFocus = [
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+  'Ut enim ad minim veniam, quis nostrud exercitation ullamco.',
+  'Duis aute irure dolor in reprehenderit in voluptate.',
+  'Sed do eiusmod tempor incididunt ut labore.'
+] as const;
+
+const placeholderCredits = [
+  ['Lorem ipsum', 'Dolor sit amet', 'Consectetur adipiscing'],
+  ['Sed do eiusmod', 'Tempor incididunt', 'Ut labore magna'],
+  ['Ut enim ad minim', 'Quis nostrud', 'Ex ea commodo'],
+  ['Duis aute irure', 'Esse cillum', 'Fugiat nulla pariatur']
+] as const;
+
+const placeholderTags = [
+  ['lorem', 'ipsum', 'dolor'],
+  ['amet', 'elit', 'tempor'],
+  ['veniam', 'nostrud', 'commodo'],
+  ['irure', 'cillum', 'fugiat']
+] as const;
+
+const placeholderCaptions = [
+  'Lorem ipsum dolor sit amet.',
+  'Sed do eiusmod tempor incididunt.',
+  'Ut enim ad minim veniam.',
+  'Duis aute irure dolor in reprehenderit.'
+] as const;
+
+export const works: WorkItem[] = baseWorks.map((work, index) => ({
+  ...work,
+  role: placeholderRoles[index % placeholderRoles.length],
+  detail: placeholderDetails[index % placeholderDetails.length],
+  note: placeholderNotes[index % placeholderNotes.length],
+  expanded: placeholderExpanded[index % placeholderExpanded.length],
+  focus: placeholderFocus[index % placeholderFocus.length],
+  credits: [...placeholderCredits[index % placeholderCredits.length]],
+  tags: [...placeholderTags[index % placeholderTags.length]],
+  imageCaption: work.imageCaption
+    ? placeholderCaptions[index % placeholderCaptions.length]
+    : work.imageCaption
+}));
+
 export const filterDescriptions: Record<FilterId, string> = {
-  all: 'Una selezione di opere pubbliche che attraversa quattro territori: cinema, serialita televisiva, palcoscenico e creazione indipendente.',
-  film: 'Il versante cinema mette insieme film italiani, autoriali e internazionali, con un percorso che va da Bonjour Michel a Confidenza.',
-  tv: 'La sezione Serie TV riunisce fiction italiane, miniserie e produzioni internazionali, a partire dal debutto in La piovra 10.',
-  stage: 'Il percorso teatrale attraversa classici, drammaturgia contemporanea e monologhi, con una forte tensione poetica e politica.',
-  production: 'Qui emergono i lavori in cui interpretazione, regia, adattamento e produzione di compagnia diventano un unico gesto artistico.'
+  all: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.',
+  film: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.',
+  tv: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur.',
+  stage: 'Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.',
+  production: 'Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae.'
 };
 
 export const spotlightItems: SpotlightItem[] = [
   {
     id: 'film',
     label: 'Cinema',
-    summary: "Film d'autore, produzioni internazionali, ruoli sensibili e stratificati."
+    summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
   },
   {
     id: 'tv',
     label: 'Serie TV',
-    summary: 'Dalla fiction italiana alle produzioni internazionali.'
+    summary: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
   },
   {
     id: 'stage',
     label: 'Teatrale',
-    summary: 'Classici, drammaturgia contemporanea, monologhi e grandi regie.'
+    summary: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.'
   },
   {
     id: 'production',
     label: 'Produzione e regia',
-    summary: "Un teatro indipendente che nasce dall'autoproduzione e dalla ricerca."
+    summary: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.'
   }
 ];
 
@@ -731,27 +801,27 @@ export const theatreMoments: TimelineItem[] = [
   {
     year: '2026',
     title: 'Appunti per il futuro',
-    text: 'Una nuova creazione che passa attraverso memorie di guerra, sentimenti e testimonianze, cercando una forma corale e poetica.'
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.'
   },
   {
     year: '2024',
     title: 'Elena',
-    text: 'Ritsos diventa confessione, rovina, bellezza che resiste. Il mito viene portato vicino, quasi a contatto con chi guarda.'
+    text: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.'
   },
   {
     year: '2023',
     title: "I Monologhi dell'Atomica",
-    text: 'Una partitura civile e struggente che mette al centro la voce delle donne come testimoni della catastrofe.'
+    text: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
   },
   {
     year: '2019',
     title: 'Trilogia Arvigo',
-    text: "Un ritratto d'artista dedicato dal Teatro di Roma con 4:48 Psychosis, Il dolore e Una ragazza lasciata a meta."
+    text: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.'
   },
   {
     year: '2016',
     title: 'Yerma / Edipo / Monologhi',
-    text: 'Un periodo che intreccia classico, drammaturgia politica e messa a fuoco della propria firma scenica.'
+    text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.'
   }
 ];
 
@@ -759,31 +829,31 @@ export const productionHighlights: ProductionHighlight[] = [
   {
     year: 'Autoproduzione',
     title: 'Teatro come costruzione completa',
-    text: "Dal lavoro sul testo alla forma scenica, l'attivita produttiva prende corpo come gesto unitario: adattamento, regia, allestimento, interpretazione."
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.'
   },
   {
     year: 'Figure femminili',
     title: 'Una costellazione di testimoni',
-    text: 'Da Sarah Kane a Marguerite Duras, da Lina Merlin a Ritsos, il repertorio mette al centro voci difficili, luminose, imperdonabili.'
+    text: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.'
   },
   {
     year: 'Compagnia',
     title: 'Produzioni indipendenti',
-    text: 'La Compagnia Elena Arvigo sostiene progetti che vivono di precisione artigianale, tenuta poetica e rapporto ravvicinato con il pubblico.'
+    text: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
   }
 ];
 
 export const awards = [
-  '2023 - Premio Le Maschere del Teatro Italiano',
-  '2019 - Candidatura Le Maschere per 4:48 Psychosis',
-  '2014 - Premio Migliore Attrice, Asti Film Festival',
-  '1999 - Segnalazione Premio Hystrio alla Vocazione'
+  'Lorem ipsum dolor sit amet',
+  'Consectetur adipiscing elit',
+  'Sed do eiusmod tempor',
+  'Ut labore et dolore magna'
 ];
 
 export const profilePoints = [
-  'Formazione tra Ginevra, Losanna, Londra e Milano',
-  'Italiano, inglese, francese e tedesco in scena',
-  'Una ricerca che intreccia mito, politica e intimita'
+  'Lorem ipsum dolor sit amet',
+  'Consectetur adipiscing elit',
+  'Sed do eiusmod tempor'
 ];
 
 export const filters = [

@@ -66,31 +66,6 @@
             </figure>
           }
 
-          <aside class="palette-card soft-rise rounded-[2rem] p-6 md:p-8" style="--delay: 120ms">
-            <p class="text-xs uppercase tracking-[0.22em] text-[var(--detail-accent)]">Palette</p>
-            <h2
-              class="mt-3 max-w-[12ch] font-display text-[clamp(2rem,4vw,3rem)] leading-[0.98] tracking-[-0.04em] text-[var(--detail-deep)]"
-            >
-              {{ current.palette.mood }}
-            </h2>
-            <p class="mt-4 text-base leading-8 text-[color:var(--detail-deep)]/76">
-              {{ current.focus }}
-            </p>
-            <div class="mt-6 flex flex-wrap gap-3">
-              @for (swatch of current.palette.swatches; track swatch) {
-                <div class="flex flex-col gap-2">
-                  <span
-                    class="size-14 rounded-2xl border border-white/70 shadow-[inset_0_1px_0_rgba(255,255,255,0.35)]"
-                    [style.background]="swatch"
-                  ></span>
-                  <span class="text-[0.68rem] uppercase tracking-[0.18em] text-[color:var(--detail-deep)]/60">
-                    {{ swatch }}
-                  </span>
-                </div>
-              }
-            </div>
-          </aside>
-
           <div class="detail-card soft-rise rounded-[2rem] p-6 md:p-8" style="--delay: 180ms">
             <p class="text-xs uppercase tracking-[0.22em] text-[var(--detail-accent)]">Scheda</p>
             <div class="mt-4 grid gap-4 md:grid-cols-2">
@@ -121,11 +96,11 @@
           <h2
             class="mt-3 font-display text-[2rem] leading-[1.02] tracking-[-0.03em] text-[var(--detail-deep)]"
           >
-            Una pagina costruita sull'opera
+            Lorem ipsum dolor sit amet
           </h2>
           <p class="mt-4 text-base leading-8 text-[color:var(--detail-deep)]/76">
-            Ogni scheda cambia atmosfera cromatica per avvicinarsi al tono del progetto: piu
-            mitico, piu severo, piu intimo o piu civile.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua.
           </p>
           <div class="mt-6 flex flex-wrap gap-2">
             @for (tag of current.tags; track tag) {
@@ -166,8 +141,8 @@
           Scheda non trovata
         </h1>
         <p class="mx-auto mt-5 max-w-xl text-lg leading-8 text-[color:var(--detail-deep,#261523)]/75">
-          Questa opera non e presente nel catalogo attuale. Torna alla pagina principale per
-          esplorare le schede disponibili.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+          ut labore et dolore magna aliqua.
         </p>
         <a
           class="mt-8 inline-flex min-h-12 items-center justify-center rounded-full bg-[var(--detail-deep,#261523)] px-5 text-sm font-semibold text-white"

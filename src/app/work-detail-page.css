@@ -31,7 +31,6 @@
 
 .detail-card,
 .detail-mini-card,
-.palette-card,
 .image-card {
   position: relative;
   border: 1px solid rgba(255, 255, 255, 0.58);
@@ -40,8 +39,7 @@
   box-shadow: 0 24px 64px rgba(53, 34, 46, 0.11);
 }
 
-.detail-card::after,
-.palette-card::after {
+.detail-card::after {
   content: '';
   position: absolute;
   inset: auto -8% -22% auto;
@@ -50,12 +48,6 @@
   border-radius: 999px;
   background: radial-gradient(circle, color-mix(in srgb, var(--detail-accent) 16%, white), transparent 68%);
   pointer-events: none;
-}
-
-.palette-card {
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.5), rgba(255, 250, 246, 0.62)),
-    linear-gradient(135deg, color-mix(in srgb, var(--detail-glow) 24%, white), transparent);
 }
 
 .image-card {
